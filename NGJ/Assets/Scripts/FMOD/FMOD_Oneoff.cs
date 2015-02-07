@@ -5,7 +5,7 @@ using FMOD.Studio;
 public class FMOD_Oneoff : MonoBehaviour {
 
 	[SerializeField] public bool _bPlaySound = true;
-	[SerializeField] private FMOD.Studio.EventInstance _soundEvent;
+	[SerializeField] private FMODAsset _soundAsset;
 	
 	
 	// Use this for initialization
@@ -17,7 +17,8 @@ public class FMOD_Oneoff : MonoBehaviour {
 	void Update () {
 	 
 		if (_bPlaySound == true){
-			FMOD_StudioSystem.instance.PlayOneShot(_soundEvent, transform.position)
+			_bPlaySound = false;
+			FMOD_StudioSystem.instance.PlayOneShot(_soundAsset, transform.position);
 		}
 	
 	}
